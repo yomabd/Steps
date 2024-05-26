@@ -11,6 +11,7 @@ const App = () => {
   };
   const stepNumbers = [1, 2, 3];
   const [currentStep, setCurrentStep] = useState(3);
+  const [closeState, setCloseState] = useState(false);
 
   const handleNext = () => {
     if (currentStep < 3) {
@@ -22,24 +23,48 @@ const App = () => {
       setCurrentStep(currentStep - 1);
     }
   };
+  const handleClose = () => {
+    setCloseState(!closeState);
+  };
   return (
     <div className="wrapper">
-      <Button text="X" />
-      <div className="container">
-        <div className="steps">
-          {/* <Circle step={1} stateStep={step} />
+      <div className="close-bg">
+        <Button
+          bg="close-bg"
+          button="close-btn"
+          handleClick={handleClose}
+          name="&times;"
+        />
+      </div>
+      {!closeState && (
+        <>
+          <div className="container">
+            <div className="steps">
+              {/* <Circle step={1} stateStep={step} />
           <Circle step={2} stateStep={step} />
           <Circle step={3} stateStep={step} /> */}
-          {stepNumbers.map((step) => (
-            <Circle step={step} currentStep={currentStep} />
-          ))}
-        </div>
-        <Heading step={currentStep} text={steps[currentStep]} />
-        <div className="buttons">
-          <Button handleClick={handlePrevious} name="Previous" />
-          <Button handleClick={handleNext} name="Next" />
-        </div>
-      </div>
+              {stepNumbers.map((step) => (
+                <Circle step={step} currentStep={currentStep} />
+              ))}
+            </div>
+            <Heading step={currentStep} text={steps[currentStep]} />
+            <div className="buttons">
+              <Button
+                button="button"
+                bg="button-bg"
+                handleClick={handlePrevious}
+                name="Previous"
+              />
+              <Button
+                button="button"
+                bg="button-bg"
+                handleClick={handleNext}
+                name="Next"
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -65,10 +90,10 @@ const Heading = ({ step, text }) => {
 };
 
 //declaration of button component
-const Button = ({ name, handleClick }) => {
+const Button = ({ name, handleClick, bg, button }) => {
   return (
-    <div>
-      <button onClick={handleClick} className="button" type="button">
+    <div className="">
+      <button onClick={handleClick} className={`${bg} ${button}`} type="button">
         {name}
       </button>
     </div>
