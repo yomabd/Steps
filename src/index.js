@@ -29,12 +29,9 @@ const App = () => {
   return (
     <div className="wrapper">
       <div className="close-bg">
-        <Button
-          bg="close-bg"
-          button="close-btn"
-          handleClick={handleClose}
-          name="&times;"
-        />
+        <button className="close-btn" onClick={handleClose}>
+          &times;
+        </button>
       </div>
       {!closeState && (
         <>

@@ -17,6 +17,7 @@
   background-color: rgba(248, 241, 241, 0.495);
   border-radius: 15px;
   margin-left: auto;
+  margin-top: 25px;
 }
 .circle {
   line-height: 3em;
@@ -60,16 +61,19 @@
   background-color: purple;
 
 }
-.close-bg{
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
+
 .close-btn{
-  width: 2.5rem;
-  height:2.5rem;
+  background-color: white;
   margin-left: auto;
   display: block;
+  cursor: pointer;
+  border: none;
+  font-size: x-large;
+
+}
+.close-btn:hover{
+  color:rgb(208, 75, 208);
+
 }
 .button:hover{
   Background-color:rgb(208, 75, 208);
