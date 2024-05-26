@@ -20,7 +20,7 @@
   width: 60%;
   border: solid gray 2px;
   padding: 2em;
-  height: 40vh;
+  min-height: 40vh;
   background-color: rgba(248, 241, 241, 0.495);
   border-radius: 15px;
 }
